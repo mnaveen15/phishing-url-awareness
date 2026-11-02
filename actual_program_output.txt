@@ -1,0 +1,58 @@
+==============================================================
+        EWB PHISHING URL AWARENESS CHECKER
+==============================================================
+Defensive learning tool: URL text is analyzed locally.
+The program never visits or opens the URL.
+Enter one URL, or paste multiple URLs separated by commas.
+Type 'q' to quit.
+
+URL(s): 
+URL: https://www.example.com/login
+Result:
+- No listed warning signs found. This does NOT prove safety.
+
+URL(s): 
+URL: http://192.0.2.10/account
+Result:
+- Uses an IP address instead of a familiar domain.
+- Uses HTTP. HTTPS alone does not prove trust.
+
+Why these were flagged:
+- Uses an IP address instead of a familiar domain.
+- Uses HTTP. HTTPS alone does not prove trust, but HTTP does not provide encrypted transport.
+
+REVIEW CAREFULLY: 2 warning sign(s) found.
+
+URL(s): 
+URL: http://example.com@sample.invalid/login
+Result:
+- Contains an @ symbol; inspect carefully.
+- Uses HTTP. HTTPS alone does not prove trust.
+
+Why these were flagged:
+- The @ symbol can hide the real destination because text before @ may be treated as user information.
+- Uses HTTP. HTTPS alone does not prove trust, but HTTP does not provide encrypted transport.
+
+REVIEW CAREFULLY: 2 warning sign(s) found.
+
+URL(s): 
+URL: https://a.b.c.d.e.example.invalid/path
+Result:
+- Contains many hostname segments/subdomains.
+
+Why these were flagged:
+- Many hostname segments/subdomains can make a link look more official than it is.
+
+REVIEW CAREFULLY: 1 warning sign(s) found.
+
+URL(s): 
+URL: https://xn--example.invalid/
+Result:
+- Contains a punycode-style hostname.
+
+Why these were flagged:
+- Punycode-style hostnames can represent look-alike international characters.
+
+REVIEW CAREFULLY: 1 warning sign(s) found.
+
+URL(s): Goodbye.
